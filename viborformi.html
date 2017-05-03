@@ -1,0 +1,80 @@
+<html>
+	<header>
+		
+		<meta charset="utf-8">
+
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+
+		<link rel='stylesheet' href='css/materialize.css' type='text/css'></link>
+
+		<link rel='stylesheet' href='css/main.css' type='text/css'></link>
+
+		<script type="text/javascript" src='js/jquery-2.2.1.js'></script>
+		<script type="text/javascript" src='js/materialize.js'></script>
+	</header>
+	<body>
+		<div class="navbar-fixed">
+		    <nav>
+		    	<div class="container">		      
+		        <a href="index.html" class="brand-logo hoverable">ПрофиГрад</a>
+		        <ul class="rightmenu ">
+		          <li><a href="index.html">На Главную</a></li>
+		          <li><a href="#contacts">Контакты</a></li>
+		        </ul>
+		    	</div>
+		    </nav>
+		</div>
+			<div class="slider">
+			    <ul class="slides">
+			      <li>
+			        <img src="img/parallax.jpg"> <!-- random image -->
+			      </li>
+			      <li>
+			        <img src="img/2.jpg" alt="foto"> <!-- random image -->			        
+			      </li>
+			      <li>
+			        <img src="img/3.jpg" alt="foto"> <!-- random image -->			        
+			      </li>
+			      <li>
+			        <img src="img/4.jpg" alt="foto"> <!-- random image -->			        
+			      </li>
+			    </ul>
+			  </div>
+			<div class="container">
+				<div class="row nomargin">
+					<div class="col s12">
+						<a href="Forma.html" class="cell z-depth-3 waves-effect waves-block waves-orange">
+							<div class="parallax"><img src="img/forma.jpg" style="width: 100%;"></div>
+						</a>
+					</div>
+				</div>
+			</div>
+	</body>
+	<footer class="page-footer">
+        <div class="container">
+            <div class="row">
+              	<div class="col l8 offset-l2 s12">
+                	<h5 class="white-text" id="contacts">Связаться с нами</h5>
+                	<p class="grey-text text-lighten-3">Email: profigrad_nn@mail.ru</p>
+                	<p class="grey-text text-lighten-3">Елена тел.+79307120217</p>
+                	<p class="grey-text text-lighten-3">Ольга тел.+79519107056</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+            © 2016 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#top">Наверх</a>
+            </div>
+        </div>
+    </footer>
+ 	<script type="text/javascript">
+	    $(document).ready(function(){
+      	$('.slider').slider({
+      		indicators: false,
+      		height: 350,
+        	transition: 700,
+        	interval: 3000});
+      	$('.parallax').parallax();});
+    </script>
+</html>
