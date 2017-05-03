@@ -4,7 +4,6 @@ $db = [
     'dbname' => 'profigrad-nn',
     'user' => 'root',
     'password' => '',
-    'http_referer' => '/http\:\/\/localhost\:3000\/admin/',
     'sql_mode' => !0
 ];
 
@@ -71,7 +70,7 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                                 <div class="caption center-align">
                                     <h3>Появился раздел новости!</h3>
                                     <h5 class="light">Нажмите стрелки справа или слева, чтобы посмотреть краткое описание<br>
-                                        Более подробная информация в меню, раздел "НОВОСТИ"</h5>
+                                        Более подробная информация в меню, раздел "НОВОСТ�?"</h5>
                                     <h5><a href="news.php">Перейти в раздел "Новости"</a></h5>
                                 </div>
                             </li>
@@ -141,7 +140,7 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
     					</div>
     					<div class='col s12 m6 l6 xl4'>
     						<a href='forSchool.html' class="cell  z-depth-3 waves-effect waves-block waves-orange">
-    							<h2 class="main_menu_style">Информация для школ</h2>
+    							<h2 class="main_menu_style">�?нформация для школ</h2>
     						</a>
     					</div>
     					<div class='col s12 m6 l6 xl4'>
