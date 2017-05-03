@@ -140,8 +140,8 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
     						</a>
     					</div>
     					<div class='col s12 m6 l6 xl4'>
-    						<a href='forSchool.html' class="cell  z-depth-3 waves-effect waves-block waves-orange">
-    							<h2 class="main_menu_style">Информация для школ</h2>
+    						<a href='review.php' class="cell  z-depth-3 waves-effect waves-block waves-orange">
+    							<h2 class="main_menu_style">Отзывы</h2>
     						</a>
     					</div>
     					<div class='col s12 m6 l6 xl4'>
