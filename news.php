@@ -65,7 +65,11 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
 				<h1 class="textcenter"><?= $item['title'] ?></h1>
 				<div class="col s12 m6 l6">
                                     <div class="circle_table_adv">
-                                        <video src="<?= $item['video'] ?>" width="100%" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" controls/>
+                                        <?
+                                            if($item['video']) echo '<video src="'.$item['video'].'" width="100%" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" controls/>';
+                                            elseif($item['img']) echo '<img src="'.$item['img'].'"/>';
+                                        ?>
+                                        
                                     </div>
 				</div>
 				<div class="col s12 m6 l6">

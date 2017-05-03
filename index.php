@@ -82,13 +82,13 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                                        <li>
                                             <div class="caption right-align">
                                                 <div class="row">
-                                                    <div class="col s8 right-align">
-                                                        <h3>'.$item['title'].'</h3>
-                                                        <h5 class="light">'.$item['short_text'].'</h5>
+                                                    <div class="col s6 m6 l7 xl8 right-align">
+                                                        <h4>'.$item['title'].'</h4>
+                                                        <p class="light black-text">'.$item['short_text'].'</p>
                                                         <a href="news.php">Перейти в раздел "Новости"</a>
                                                     </div>
-                                                    <div class="col s4">
-                                                        <div class="news_image"><img src="'.$item['img'].'"/></div>
+                                                    <div class="col s6 m6 l5 xl4">
+                                                        <img src="'.$item['img'].'" style="height: inherit; background-size: contain;"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,12 +100,12 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                                         <li>
                                             <div class="caption left-align">
                                                 <div class="row">
-                                                    <div class="col s4">
-                                                        <div class="news_image"><img src="'.$item['img'].'"/></div>
+                                                    <div class="col s6 m6 l5 xl4">
+                                                        <img src="'.$item['img'].'" style="height: inherit; background-size: contain;"/>
                                                     </div>
                                                     <div class="col s8 left-align">
-                                                        <h3>'.$item['title'].'</h3>
-                                                        <h5 class="light">'.$item['short_text'].'</h5>
+                                                        <h4>'.$item['title'].'</h4>
+                                                        <p class="light black-text">'.$item['short_text'].'</p>
                                                         <a href="news.php">Перейти в раздел "Новости"</a>
                                                     </div>
                                                 </div>
