@@ -30,9 +30,12 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
 		<link rel='stylesheet' href='css/materialize.min.css' type='text/css'/>
 
 		<link rel='stylesheet' href='css/main.css' type='text/css'/>
+                
+                <link href="css/least.min.css" rel="stylesheet" />
 
 		<script type="text/javascript" src='js/jquery-2.2.1.js'></script>
 		<script type="text/javascript" src='js/materialize.js'></script>
+                <script src="js/least.js"></script>
                 
                 <title>ПрофиГрад</title>
 </head>
@@ -60,33 +63,56 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
 	</div>
 	<div class="container">
             <? foreach ($items as $item): ?>
-		<div class="newsItem">
+		<div class="newsItem" >
+                    <p class="date"><?= $item['date'] ?></p>
 			<div class="row">
 				<h1 class="textcenter"><?= $item['title'] ?></h1>
-				<div class="col s12 m6 l6">
-                                    <div class="circle_table_adv">
-                                        <?
-                                            if($item['video']) echo '<video src="'.$item['video'].'" width="100%" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" controls/>';
-                                            elseif($item['img']) echo '<img src="'.$item['img'].'"/>';
-                                        ?>
-                                        
-                                    </div>
-				</div>
-				<div class="col s12 m6 l6">
-					<div class="small_text">
-                                            <p class="flow-text"><?= $item['short_text'] ?></p>
+				<div class="col s12 m12 l12">
+                                    <div class="small_text">
+                                        <p class="flow-text"><?= $item['short_text'] ?></p>
+                                        <? if($item['full_text']): ?>
                                             <a href="#" class="text_toggle sm_btn_decoration" data-switch="false">Читать подробнее...</a>
-					</div>
+                                        <?endif;?>
+                                    </div>
 				</div>
 				<div class="col s12 m12 l12">
                                     <div class="full_text">
-                                        <?= $item['full_text'] ?>
+                                        <p class="flow-text"><?= $item['full_text'] ?></p>
                                     	<a href="#" class="text_toggle sm_btn_decoration hidden" data-switch="true">Свернуть</a>
                                     </div>
 				</div>
+                                <div class="col s12 news_video">
+                                    <? if($item['video']):?>
+                                        <video src="<?=$item['video']?>" width="100%" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" controls/>
+                                    <? endif; ?>
+                                    <? if($item['img'] && count(unserialize($item['img'])) > 1): ?>
+                                        <section id="least">
+                                            <div class="least-preview"></div>
+                                            <ul class="least-gallery" >
+                                                
+                                                <? foreach(unserialize($item['img']) as $img): ?>
+                                                    <li>
+                                                        <a href="<?=$img[0]?>" title="Увеличить" data-subtitle="Фото" data-caption="<?=$img[1]?>">
+                                                            <img src="<?=$img[0]?>" alt="Alt Image Text" />
+                                                        </a>
+                                                    </li>
+                                                <? endforeach; ?>
+                                            </ul>
+                                        </section>
+                                    <? else: ?>
+                                        <div class="news_img">
+                                            <img width="100%" src="<?=unserialize($item['img'])[0][0]?>"/>
+                                        </div>
+                                    <? endif; ?>
+                                    
+                                </div>
 			</div>
 		</div>
             <? endforeach; ?>
+            <?php
+//            $arr[] = ['img/plakat.jpg', 'Описание 1'];
+//            print_r(serialize($arr));
+            ?>            
         </div>
 <footer class="page-footer">
     <div class="container">
@@ -119,8 +145,10 @@ $(document).ready(function(){
 	var item = $(this).parents('.newsItem');
 	item.find('div.full_text').slideToggle(1000);
 	item.find('[data-switch=true],[data-switch=false]').toggleClass('hidden');
+        $(document).scrollTop(item.offset().top-100);
 	return !1;
     });
+    $('.least-gallery').least();
 });
 </script>
     

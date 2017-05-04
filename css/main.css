@@ -123,11 +123,25 @@ body {
 }
 
 .text_toggle {
-  position: relative;
-  border: 1px solid;
-  padding: 10px;
-  font-size: large;
-  margin-top: 20px;
+    position: relative;
+    border: 1px solid;
+    padding: 10px;
+    font-size: large;
+    margin: 20px 0px;
+    
+}
+.small_text .text_toggle {
+    bottom: 15px;
+    left: 5px;
+}
+
+.flow-text {
+    margin-bottom: 25px;
+}
+
+.full_text .text_toggle {
+    bottom: 15px;
+    left: 5px;
 }
 
 .text_toggle i, .text_toggle p {
@@ -361,6 +375,7 @@ td, th {
     float: right;
 }
 
+
 .slider .slides {
     background-color: #eeeeee;
 }
@@ -375,12 +390,34 @@ td, th {
 }
 .slider .slides li img {
     background-repeat: no-repeat;
+    max-height: 350px;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
 }
 
+.newsItem {
+    border-top: 1px solid black;
+    background-color: white;
+    padding-top: 20px;
+    position: relative;
+}
+.date {
+    position: absolute;
+}
+
+.news_video video {
+    max-width: 640px;
+    margin: 0 auto;
+    display: block;
+}
+
+.news_img img {
+    max-width: 640px;
+    margin: 0 auto;
+    display: block;
+}
 @media only screen and (max-width: 992px) {
 .card-content {
     overflow: hidden;
