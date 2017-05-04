@@ -156,6 +156,50 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
     		    	</div>
     		    </div>
     		</div>
+                 
+
+            <style>
+                .reviews{
+                    margin: 30px 0;
+                    text-align: center;
+                }
+                .reviews .items .item h6{
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: orange;
+                }
+                .reviews .items .item span{
+                    font-weight: bold;
+                    
+                }
+                .reviews .items .item p{
+                    text-align: justify;
+                    margin: 0 15px;
+                }
+            </style>   
+            <div class="reviews">
+                <h2 class="title">Отзывы</h2>
+                <div class="items row nomargin">
+                    <div class="item col s12 m6 l6 xl4">
+                        <h6>Мария</h6>
+                        <span>Учитель</span>
+                        <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Агенство обеспечивает текста домах сбить лучше маленький дорогу даже заманивший?</p>
+                    </div>
+                    <div class="item col s12 m6 l6 xl4">
+                        <h6>Мария</h6>
+                        <span>Учитель</span>
+                        <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Но переписали, строчка. Свой великий от всех что продолжил, проектах запятых повстречался курсивных родного встретил, мир имени оксмокс прямо, парадигматическая заглавных. Живет составитель, снова путь предложения.</p>
+                    </div>
+                    <div class="item col s12 m6 l6 xl4">
+                        <h6>Мария</h6>
+                        <span>Учитель</span>
+                        <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Языкового это семантика залетают скатился.</p>
+                    </div>
+                </div>
+            </div>
+
+
+                    
 		<div id="slider" class="slider">
 		    <ul class="slides">
 		      <li><img src="img/parallax.jpg"></li>
