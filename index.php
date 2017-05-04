@@ -76,7 +76,6 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                             </li>
                             <?$i = true;?>
                             <? foreach ($items as $item): ?>
-                            <? foreach (unserialize($item['img']) as $img): ?>
                             <?
                                 if($i){
                                     echo '
@@ -88,9 +87,12 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                                                         <p class="light black-text">'.$item['short_text'].'</p>
                                                         <a href="news.php">Перейти в раздел "Новости"</a>
                                                     </div>
-                                                    <div class="col s6 m6 l5 xl4">
-                                                        <img src="'.$img[0].'" style="height: inherit; background-size: contain;"/>
-                                                    </div>
+                                                    <div class="col s6 m6 l5 xl4">';
+
+                                                        if($item['img']) echo '<img src="'.unserialize($item['img'])[0][0].'" style="height: inherit; background-size: contain;"/>';
+                                                        elseif($item['video']) echo '<video src="'.$item['video'].'" width="100%" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" controls/>';
+                                                       
+                                              echo '</div>
                                                 </div>
                                             </div>
                                         </li> 
@@ -101,9 +103,12 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                                         <li>
                                             <div class="caption left-align">
                                                 <div class="row">
-                                                    <div class="col s6 m6 l5 xl4">
-                                                        <img src="'.$img[0].'" style="height: inherit; background-size: contain;"/>
-                                                    </div>
+                                                    <div class="col s6 m6 l5 xl4">';
+                                    
+                                                        if($item['img']) echo '<img src="'.unserialize($item['img'])[0][0].'" style="height: inherit; background-size: contain;"/>';
+                                                        elseif($item['video']) echo '<video src="'.$item['video'].'" width="100%" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" controls/>';
+                                                     
+                                              echo' </div>
                                                     <div class="col s8 left-align">
                                                         <h4>'.$item['title'].'</h4>
                                                         <p class="light black-text">'.$item['short_text'].'</p>
@@ -116,7 +121,6 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                                     $i = true;
                                 }
                             ?>
-                            <? endforeach; ?>
                             <? endforeach; ?>
                         </ul>
                     </div>
