@@ -90,7 +90,7 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                                                     <div class="col s6 m6 l5 xl4">';
 
                                                         if($item['img']) echo '<img src="'.unserialize($item['img'])[0][0].'" style="height: inherit; background-size: contain;"/>';
-                                                        elseif($item['video']) echo '<video src="'.$item['video'].'" width="100%" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" controls/>';
+                                                        elseif($item['video']) echo '<video src="'.$item['video'].'" width="100%"  type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" controls/>';
                                                        
                                               echo '</div>
                                                 </div>

@@ -430,6 +430,12 @@ td, th {
 }
 
 /*------INDEX.PHP------*/
+.caption video {
+    background-repeat: no-repeat;
+    max-height: 350px;
+    width: 100%;
+    background-position: center;
+}
 .divider{
     margin: 30px 0px;
 }
