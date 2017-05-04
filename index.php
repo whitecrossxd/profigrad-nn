@@ -76,6 +76,7 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                             </li>
                             <?$i = true;?>
                             <? foreach ($items as $item): ?>
+                            <? foreach (unserialize($item['img']) as $img): ?>
                             <?
                                 if($i){
                                     echo '
@@ -88,7 +89,7 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                                                         <a href="news.php">Перейти в раздел "Новости"</a>
                                                     </div>
                                                     <div class="col s6 m6 l5 xl4">
-                                                        <img src="'.$item['img'].'" style="height: inherit; background-size: contain;"/>
+                                                        <img src="'.$img[0].'" style="height: inherit; background-size: contain;"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,7 +102,7 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                                             <div class="caption left-align">
                                                 <div class="row">
                                                     <div class="col s6 m6 l5 xl4">
-                                                        <img src="'.$item['img'].'" style="height: inherit; background-size: contain;"/>
+                                                        <img src="'.$img[0].'" style="height: inherit; background-size: contain;"/>
                                                     </div>
                                                     <div class="col s8 left-align">
                                                         <h4>'.$item['title'].'</h4>
@@ -115,7 +116,7 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
                                     $i = true;
                                 }
                             ?>
-                            
+                            <? endforeach; ?>
                             <? endforeach; ?>
                         </ul>
                     </div>
@@ -156,47 +157,65 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
     		    	</div>
     		    </div>
     		</div>
-                 
-
-            <style>
-                .reviews{
-                    margin: 30px 0;
-                    text-align: center;
-                }
-                .reviews .items .item h6{
-                    font-size: 20px;
-                    font-weight: bold;
-                    color: orange;
-                }
-                .reviews .items .item span{
-                    font-weight: bold;
-                    
-                }
-                .reviews .items .item p{
-                    text-align: justify;
-                    margin: 0 15px;
-                }
-            </style>   
-            <div class="reviews">
-                <h2 class="title">Отзывы</h2>
-                <div class="items row nomargin">
-                    <div class="item col s12 m6 l6 xl4">
-                        <h6>Мария</h6>
-                        <span>Учитель</span>
-                        <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Агенство обеспечивает текста домах сбить лучше маленький дорогу даже заманивший?</p>
+                    <div class="divider"></div>
+                    <div class="reviews">
+                        <h2 class="title">Отзывы</h2>
+                        <div class="items row nomargin">
+                            <div class="item col s12 m6 l6 xl4">
+                                <h6>Мария Иванна</h6>
+                                <span>Учитель Школа №123</span>
+                                <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Агенство обеспечивает текста домах сбить лучше маленький дорогу даже заманивший?</p>
+                            </div>
+                            <div class="item col s12 m6 l6 xl4">
+                                <h6>Мария Иванна</h6>
+                                <span>Учитель Школа №123</span>
+                                <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Но переписали, строчка. Свой великий от всех что продолжил, проектах запятых повстречался курсивных родного встретил, мир имени оксмокс прямо, парадигматическая заглавных. Живет составитель, снова путь предложения.</p>
+                            </div>
+                            <div class="item col s12 m6 l6 xl4">
+                                <h6>Мария Иванна</h6>
+                                <span>Учитель Школа №123</span>
+                                <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Языкового это семантика залетают скатился.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item col s12 m6 l6 xl4">
-                        <h6>Мария</h6>
-                        <span>Учитель</span>
-                        <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Но переписали, строчка. Свой великий от всех что продолжил, проектах запятых повстречался курсивных родного встретил, мир имени оксмокс прямо, парадигматическая заглавных. Живет составитель, снова путь предложения.</p>
+                    <div class="divider"></div>
+                    <div class="reviews_writing">
+                        <h2 class="title">Оставьте свой отзыв</h2>
+                        <div class="row orange">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="first_name" type="text" class="validate white-text">
+                                        <label for="first_name">Имя*</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="last_name" type="text" class="validate white-text">
+                                        <label for="last_name">Фамилия*</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="school" type="text" class="validate white-text">
+                                        <label for="school">Номер Школы(пример:111, 8, 38)</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="position" type="text" class="validate white-text">
+                                        <label for="position">Должность(пример: Учитель, Ученик, Родитель)</label>
+                                    </div>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">mode_edit</i>
+                                    <textarea id="textarea1" class="materialize-textarea white-text" data-length="600"></textarea>
+                                    <label for="textarea1">Напишите Ваш отзыв здесь*</label>
+                                </div>
+                                <button class="btn waves-effect waves-orange white orange-text   " type="submit" name="action">Оставить отзыв
+                                    <i class="material-icons right">send</i>
+                                </button>
+                                <span class="black-text notification"> * - поля, обязательные для заполнения</span>
+                            </form>
+                        </div>
                     </div>
-                    <div class="item col s12 m6 l6 xl4">
-                        <h6>Мария</h6>
-                        <span>Учитель</span>
-                        <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Языкового это семантика залетают скатился.</p>
-                    </div>
-                </div>
-            </div>
+                    <div class="divider"></div>
 
 
                     

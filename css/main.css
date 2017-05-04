@@ -428,3 +428,62 @@ td, th {
     height:500px;
 }
 }
+
+/*------INDEX.PHP------*/
+.divider{
+    margin: 30px 0px;
+}
+.notification {
+    float: right;
+    margin-right: 30px;
+}
+.reviews{
+    margin: 30px 0;
+    text-align: center;
+}
+.reviews .items .item h6{
+    font-size: 20px;
+    font-weight: bold;
+    color: orange;
+}
+.reviews .items .item span{
+    font-weight: bold;
+}
+.reviews .items .item p{
+    text-align: justify;
+    margin: 0 15px;
+}
+.reviews_writing {
+    margin: 30px 0;
+}
+.reviews_writing h2 {
+    text-align: center;
+}
+textarea.materialize-textarea, input[type=text] {
+    border-bottom: 1px solid black;
+}
+.input-field label {
+    color: black;
+}
+textarea.materialize-textarea:focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=text].valid {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+textarea.materialize-textarea:focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label {
+    color: white;
+}
+.row textarea {
+}
+.input-field .prefix {
+    position: absolute;
+    width: 3rem;
+    font-size: 2rem;
+    transition: color .2s;
+    top:15px;
+}
+.input-field .prefix.active {
+    color: white;
+}
+.btn .white:hover {
+    background-color: black;
+}
