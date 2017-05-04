@@ -17,6 +17,7 @@ if ($db['sql_mode'])
     \R::exec("SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION'");
 
 $items = \R::findAll('news', 'ORDER BY `id` DESC');
+$reviews = \R::findAll('reviews', 'ORDER BY `id` DESC LIMIT 3');
 ?>
 
 
@@ -162,57 +163,54 @@ $items = \R::findAll('news', 'ORDER BY `id` DESC');
     		    </div>
     		</div>
                     <div class="divider"></div>
-                    <div class="reviews">
-                        <h2 class="title">Отзывы</h2>
-                        <div class="items row nomargin">
-                            <div class="item col s12 m6 l6 xl4">
-                                <h6>Мария Иванна</h6>
-                                <span>Учитель Школа №123</span>
-                                <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Агенство обеспечивает текста домах сбить лучше маленький дорогу даже заманивший?</p>
-                            </div>
-                            <div class="item col s12 m6 l6 xl4">
-                                <h6>Мария Иванна</h6>
-                                <span>Учитель Школа №123</span>
-                                <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Но переписали, строчка. Свой великий от всех что продолжил, проектах запятых повстречался курсивных родного встретил, мир имени оксмокс прямо, парадигматическая заглавных. Живет составитель, снова путь предложения.</p>
-                            </div>
-                            <div class="item col s12 m6 l6 xl4">
-                                <h6>Мария Иванна</h6>
-                                <span>Учитель Школа №123</span>
-                                <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Языкового это семантика залетают скатился.</p>
+                    
+                    <? if (count($reviews)): ?>
+                        <div class="reviews">
+                            <h2 class="title">Отзывы</h2>
+                            <div class="items row nomargin">
+                                <? foreach ($reviews as $review): ?>
+                                    <div class="item col s12 m6 l6 xl4">
+                                        <h6><?= $review['name'] ?> <?= $review['last_name'] ?></h6>
+                                        <span><?= $review['role'] ?> Школа №<?= $review['school'] ?></span>
+                                        <p><?= $review['text'] ?></p>
+                                    </div>
+                                <? endforeach; ?>
                             </div>
                         </div>
-                    </div>
+                    <? endif; ?>
+                    
                     <div class="divider"></div>
                     <div class="reviews_writing">
                         <h2 class="title">Оставьте свой отзыв</h2>
                         <div class="row orange">
-                            <form class="col s12">
+                            <p><?= $_SESSION['error']??'' ?></p>
+                            <form class="col s12" method="post" action="action_review.php">
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input id="first_name" type="text" class="validate white-text">
+                                        <input id="first_name" type="text" name="name" class="validate white-text">
                                         <label for="first_name">Имя*</label>
                                     </div>
                                     <div class="input-field col s6">
-                                        <input id="last_name" type="text" class="validate white-text">
+                                        <input id="last_name" type="text" name="last_name" class="validate white-text">
                                         <label for="last_name">Фамилия*</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input id="school" type="text" class="validate white-text">
+                                        <input id="school" type="text" name="school" class="validate white-text">
                                         <label for="school">Номер Школы(пример:111, 8, 38)</label>
                                     </div>
                                     <div class="input-field col s6">
-                                        <input id="position" type="text" class="validate white-text">
+                                        <input id="position" type="text" name="role" class="validate white-text">
                                         <label for="position">Должность(пример: Учитель, Ученик, Родитель)</label>
                                     </div>
                                 </div>
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">mode_edit</i>
-                                    <textarea id="textarea1" class="materialize-textarea white-text" data-length="600"></textarea>
+                                    <textarea id="textarea1" name="text" class="materialize-textarea white-text" data-length="600"></textarea>
                                     <label for="textarea1">Напишите Ваш отзыв здесь*</label>
                                 </div>
-                                <button class="btn waves-effect waves-orange white orange-text   " type="submit" name="action">Оставить отзыв
+                                <button class="btn waves-effect waves-orange white orange-text" type="submit" name="action">Оставить отзыв
                                     <i class="material-icons right">send</i>
                                 </button>
                                 <span class="black-text notification"> * - поля, обязательные для заполнения</span>
